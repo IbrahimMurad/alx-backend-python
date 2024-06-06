@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+""" This module contains a function
+that safely retrieves value from a dictionary.
 """
-This module contains a function that safely retrieves value from a dictionary.
-"""
+
 from typing import Union, Any, Mapping, TypeVar
 T = TypeVar('T')
 
