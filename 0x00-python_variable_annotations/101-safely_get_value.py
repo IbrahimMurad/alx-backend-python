@@ -4,14 +4,13 @@ that safely retrieves value from a dictionary.
 """
 
 from typing import Union, Any, Mapping, TypeVar
-T = TypeVar('T')
 
 
 def safely_get_value(
-                    dct: Mapping[Any, Union[Any, T]],
+                    dct: Mapping[Any, Union[Any, TypeVar('T')]],
                     key: Any,
-                    default: Union[T, None] = None
-                    ) -> Union[Any, T]:
+                    default: Union[TypeVar('T'), None] = None
+                    ) -> Union[Any, TypeVar('T')]:
     """ Return the value linked to key in dct,
     or default if key doesn't exist. """
     if key in dct:
