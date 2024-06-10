@@ -12,5 +12,5 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     The list of the delays should be in ascending order """
     delay_list = []
     for _ in range(n):
-      delay_list.append(await task_wait_random(max_delay))
-    return delay_list
+        delay_list.append(await task_wait_random(max_delay))
+    return sorted(delay_list)
