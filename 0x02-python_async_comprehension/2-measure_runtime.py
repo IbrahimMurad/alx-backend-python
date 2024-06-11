@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" measuring runtime
+""" measuring runtime for 4 async comprehensions
 """
 import asyncio
 import time
