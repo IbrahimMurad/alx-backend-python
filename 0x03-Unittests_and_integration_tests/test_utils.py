@@ -21,6 +21,5 @@ class TestAccessNestedMap(TestCase):
             path: Tuple[str],
             expected: Union[int, dict]
             ) -> None:
-        """ test method for access_nested_map function
-        with 3 different inputs """
+        """ test method for access_nested_map function """
         self.assertEqual(access_nested_map(nested_map, path), expected)
