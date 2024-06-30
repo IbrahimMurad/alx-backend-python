@@ -4,22 +4,21 @@
 from utils import access_nested_map
 from unittest import TestCase
 from parameterized import parameterized  # type: ignore
-from typing import Tuple, Union
+from typing import Tuple, Union, Dict
 
 
 class TestAccessNestedMap(TestCase):
     """ a test suit class to test access_nested_map function """
     @parameterized.expand([
-        ('', {"a": 1}, ("a",), 1),
-        ('', {"a": {"b": 2}}, ("a",), {"b": 2}),
-        ('', {"a": {"b": 2}}, ("a", "b"), 2)
+        ({"a": 1}, ("a",), 1),
+        ({"a": {"b": 2}}, ("a",), {"b": 2}),
+        ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(
             self,
-            _,
-            nested_map: dict,
+            nested_map: Dict,
             path: Tuple[str],
-            expected: Union[int, dict]
+            expected: Union[Dict, int]
             ) -> None:
         """ test method for access_nested_map function """
         self.assertEqual(access_nested_map(nested_map, path), expected)
