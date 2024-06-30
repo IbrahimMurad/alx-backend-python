@@ -14,5 +14,5 @@ class TestAccessNestedMap(TestCase):
         ('one_key_two_objects', {"a": {"b": 2}}, ("a",), {"b": 2}),
         ('two_keys_two_objects', {"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, name: str, nested_map: Mapping, path: Tuple, expected: int) -> None:
-        self.assertEqual(access_nested_map(nested_map, path), expected)
+    def test_access_nested_map(self, n: str, np: Mapping, p: Tuple, exp: int):
+        self.assertEqual(access_nested_map(np, p), exp)
