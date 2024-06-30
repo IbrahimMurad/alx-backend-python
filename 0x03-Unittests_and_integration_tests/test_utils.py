@@ -3,7 +3,7 @@
 """
 from utils import access_nested_map
 from unittest import TestCase
-from parameterized import parameterized # type: ignore
+from parameterized import parameterized  # type: ignore
 from typing import Mapping, Tuple
 
 
@@ -15,4 +15,6 @@ class TestAccessNestedMap(TestCase):
         ('two_keys_two_objects', {"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(self, n: str, nm: Mapping, p: Tuple, exp: int):
+        """ test method for access_nested_map function
+        with 3 different inputs """
         self.assertEqual(access_nested_map(nm, p), exp)
