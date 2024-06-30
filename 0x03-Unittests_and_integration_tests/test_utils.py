@@ -4,17 +4,23 @@
 from utils import access_nested_map
 from unittest import TestCase
 from parameterized import parameterized  # type: ignore
-from typing import Mapping, Tuple
+from typing import Tuple, Union
 
 
 class TestAccessNestedMap(TestCase):
     """ a test suit class to test access_nested_map function """
     @parameterized.expand([
-        ('one_key_one_object', {"a": 1}, ("a",), 1),
-        ('one_key_two_objects', {"a": {"b": 2}}, ("a",), {"b": 2}),
-        ('two_keys_two_objects', {"a": {"b": 2}}, ("a", "b"), 2)
+        ('', {"a": 1}, ("a",), 1),
+        ('', {"a": {"b": 2}}, ("a",), {"b": 2}),
+        ('', {"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, n: str, nm: Mapping, p: Tuple, exp: int):
+    def test_access_nested_map(
+            self,
+            _,
+            nested_map: dict,
+            path: Tuple[str],
+            expected: Union[int, dict]
+            ) -> None:
         """ test method for access_nested_map function
         with 3 different inputs """
-        self.assertEqual(access_nested_map(nm, p), exp)
+        self.assertEqual(access_nested_map(nested_map, path), expected)
