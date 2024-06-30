@@ -15,15 +15,12 @@ class TestAccessNestedMap(TestCase):
         ('two_keys_two_objects', {"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(
-        self,
-        name: str,
-        nested_map: Mapping,
-        path: Tuple,
-        expected: int
-        ) -> None:
+            self,
+            name: str,
+            nested_map: Mapping,
+            path: Tuple,
+            expected: int
+            ) -> None:
         """ a method to test access_nested_map with 3 different cases
         passed to parameterized """
-        self.assertEqual(
-            access_nested_map(nested_map=nested_map, path=path),
-            expected
-            )
+        self.assertEqual(access_nested_map(nested_map, path), expected)
