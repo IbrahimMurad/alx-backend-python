@@ -1,9 +1,10 @@
-#!user/bin/env python3
+#!/usr/bin/env python3
 """ a test suit for utils.access_nested_map
 """
 from utils import access_nested_map
 from unittest import TestCase
 from parameterized import parameterized
+from typing import Mapping, Tuple
 
 
 class TestAccessNestedMap(TestCase):
@@ -13,7 +14,13 @@ class TestAccessNestedMap(TestCase):
         ('one_key_two_objects', {"a": {"b": 2}}, ("a",), {"b": 2}),
         ('two_keys_two_objects', {"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, name, nested_map, path, expected):
+    def test_access_nested_map(
+        self,
+        name: str,
+        nested_map: Mapping,
+        path: Tuple,
+        expected: int
+        ) -> None:
         """ a method to test access_nested_map with 3 different cases
         passed to parameterized """
         self.assertEqual(
