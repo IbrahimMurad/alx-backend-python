@@ -10,7 +10,6 @@ from typing import (
     Union,
     Dict,
     Type,
-    Callable,
 )
 from utils import (
     access_nested_map,
@@ -74,17 +73,17 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     """ test class for testing 'memoize' decorator """
-    def test_memoize(self) -> None:
+    def test_memoize(self):
         """ a method to test 'memoize' decorator """
 
         class TestClass:
             """ a test class for memoize decorator """
-            def a_method(self) -> int:
+            def a_method(self):
                 """ a test method that returns 42 """
                 return 42
 
             @memoize
-            def a_property(self) -> int:
+            def a_property(self):
                 """ a test property that calls a_method """
                 return self.a_method()
 
