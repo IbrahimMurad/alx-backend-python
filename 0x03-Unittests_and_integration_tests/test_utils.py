@@ -95,7 +95,3 @@ class TestMemoize(unittest.TestCase):
             mock_method.assert_called_once()
             self.assertEqual(first_call, 42)
             self.assertEqual(first_call, second_call)
-
-
-if __name__ == "__main__":
-    unittest.main()
