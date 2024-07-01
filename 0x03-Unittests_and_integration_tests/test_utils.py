@@ -6,7 +6,6 @@ from unittest.mock import Mock, patch
 from parameterized import parameterized
 from typing import (
     Sequence,
-    Mapping,
     Union,
     Dict,
     Type,
