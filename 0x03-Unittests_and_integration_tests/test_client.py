@@ -2,10 +2,9 @@
 """ test client module
 """
 from client import GithubOrgClient
-from parameterized import parameterized
+from parameterized import parameterized  # type: ignore
 from unittest.mock import patch
 from unittest import TestCase
-from boto3.resources import response
 
 
 class TestGithubOrgClient(TestCase):
