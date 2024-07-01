@@ -76,24 +76,21 @@ class TestMemoize(unittest.TestCase):
         """ a method to test 'memoize' decorator """
 
         class TestClass:
-            """ a test class for memoize decorator """
             def a_method(self):
-                """ a test method that returns 42 """
                 return 42
 
             @memoize
             def a_property(self):
-                """ a test property that calls a_method """
                 return self.a_method()
 
         with patch.object(
                 TestClass,
                 'a_method',
-                return_value=42
+                return_value=lambda: 42,
                 ) as mock_method:
             test_instance = TestClass()
-            first_call = test_instance.a_property
-            second_call = test_instance.a_property
+            first_call = test_instance.a_property()
+            second_call = test_instance.a_property()
 
             mock_method.assert_called_once()
             self.assertEqual(first_call, 42)
